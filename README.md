@@ -25,4 +25,3 @@ It demonstrates the **3-tier architecture** where responsibilities are separated
 
 ---
 
-## 📂 Project Structure
