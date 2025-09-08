@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Management System</title>
+</head>
+<body>
+    <h1>Student List</h1>
+
+    {% if students %}
+        <ul>
+        {% for s in students %}
+            <li>
+                {{ s[1] }} (Age: {{ s[2] }}, Course: {{ s[3] }})
+                <!-- delete link passes student id -->
+                <a href="/delete/{{ s[0] }}" style="color: red; margin-left: 10px;">Delete</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No students found yet.</p>
+    {% endif %}
+
+    <!-- show success/error messages -->
+    {% if message %}
+        <p style="color: green; font-weight: bold;">{{ message }}</p>
+    {% endif %}
+
+    <h2>Add Student</h2>
+    <form action="/add" method="POST">
+        <input type="text" name="name" placeholder="Enter Name" required>
+        <input type="number" name="age" placeholder="Enter Age" required>
+        <input type="text" name="course" placeholder="Enter Course" required>
+        <button type="submit">Add Student</button>
+    </form>
+
+</body>
+</html>
